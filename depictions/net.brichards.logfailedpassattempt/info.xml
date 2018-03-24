@@ -1,0 +1,16 @@
+<package>
+	<id>net.brichards.logfailedpassattempt</id>
+	<name>LogFailedPassAttempt</name>
+	<version>1.0.0</version>
+	<compatibility>
+		<firmware>
+			<miniOS>10.3.2</miniOS>
+		</firmware>
+	</compatibility>
+	<dependencies>
+		<package>mobilesubstrate</package>
+	</dependencies>
+	<descriptionlist>
+		<description>Logs failed passcode data to /var/mobile/failedpasscodedata</description>
+	</descriptionlist>
+</package>
