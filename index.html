@@ -2,37 +2,101 @@
 	<head>
 		<title>bqrichards</title>
 		<style>
-			.project-section {
-				margin-left: 2%;
+			body {
+				background: -moz-linear-gradient(330deg, rgba(20,54,107,1) 0%, rgba(6,80,122,1) 100%); /* ff3.6+ */
+				background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(20,54,107,1)), color-stop(100%, rgba(6,80,122,1))); /* safari4+,chrome */
+				background: -webkit-linear-gradient(330deg, rgba(20,54,107,1) 0%, rgba(6,80,122,1) 100%); /* safari5.1+,chrome10+ */
+				background: -o-linear-gradient(330deg, rgba(20,54,107,1) 0%, rgba(6,80,122,1) 100%); /* opera 11.10+ */
+				background: -ms-linear-gradient(330deg, rgba(20,54,107,1) 0%, rgba(6,80,122,1) 100%); /* ie10+ */
+				background: linear-gradient(120deg, rgba(20,54,107,1) 0%, rgba(6,80,122,1) 100%); /* w3c */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#14366B', endColorstr='#06507A',GradientType=1 ); /* ie6-9 */
+				color: #FF7518;
+			}
+
+			.left {
+				float: left;
+				position: relative;
+				margin-left: 8%;
+				top: 25%;
+			}
+
+			.info-box {
+				border: 2px solid #FF7518;
+				border-radius: 8%;
+			}
+
+			.right {
+				margin-left: 40%;
+				width: 500px;
+				height: 400px;
+				position: relative;
+				top: 25%;
+			}
+
+			.right > * {
+				padding-left: 5%;
+			}
+
+			a, a:visited {
+				color: #FF7518;
+			}
+
+			.project-section > * {
+				padding-left: 2%;
+			}
+
+			.experience {
+				list-style: none;
+				margin-left: 0;
+				padding-left: 1.2em;
+			}
+
+			.experience > li:before {
+    		display: block;
+    		float: left;
+    		width: 1.2em;
+			}
+
+			.experience > .yes:before {
+				content: "✓";
+			}
+
+			.experience > .no:before {
+				content: "X";
 			}
 		</style>
 	</head>
 	<body>
-		<h1>bqrichards</h1>
-		<p>Right now this website is just used as a Cydia repo. Later I'll add stuff here.</p>
-		<a href="/repo">Visit Cydia Repo</a>
-
-		<h2>Some projects I'm up to</h2>
-		<hr />
-		<div class="project-section">
-			<h3>Hawkeye Programming Challenges</h3>
-			<p>This year (2018) I will be participating in the annual <a href="https://outreach.uiowa.edu/program/hawkeye-challenge-programming-competition-computer-science">Hawkeye Programming Challenge</a>! In order to prepare myself, I've taken on the challenges from the two previous years.</p>
-			<a href="https://github.com/bqrichards/Hawkeye-Programming-Challenges">Visit it here!</a>
-		</div>
-		<br />
-
-		<div class="project-section">
-			<h3>PiTV</h3>
-			<p>I barely use the TV in my room, and so I'm making an effort to create a program that will run on my raspberry pi to occupy this digital space. The whole purpose is for it to have widgets, for example grabbing my events off of iCloud and displaying date, time, audio, video, and more.</p>
-			<a href="https://github.com/bqrichards/PiTV">Visit it here!</a>
-		</div>
-		<br />
-
-		<div class="project-section">
-			<h3>Jailbreak Tweaks</h3>
-			<ul>
-				<li>Jailbreak tweaks soon to come :)</li>
+		<div class="left">
+			<h1>Brandon Richards</h1>
+			<h2>Davenport, IA</h2>
+			<ul class="experience">
+				<li class="yes"><h3>Java</h3></li>
+				<li class="yes"><h3>Python</h3></li>
+				<li class="yes"><h3>Swift &amp; Objective-C</h3></li>
+				<li class="yes"><h3>MySQL</h3></li>
+				<li class="no"><h3>Decent Website Design</h3></li>
 			</ul>
+		</div>
+
+		<div class="right info-box">
+			<div class="section" id="cydia">
+				<h1>Cydia</h1>
+				<p>Most people will be coming here for the Cydia repo. <a href="/repo">Visit Cydia Repo</a></p>
+			</div>
+			<br />
+
+			<div class="section" id="projects">
+				<h1>Projects</h1>
+				<ul>
+					<li><h3><a href="https://github.com/bqrichards/Hawkeye-Programming-Challenges" target="_blank">Hawkeye Programming Challenges</a></h3></li>
+					<li><h3><a href="https://github.com/bqrichards/PiTV" target="_blank">PiTV</a></h3></li>
+					<li><h3>Jailbreak Tweaks</h3></li>
+					<ul>
+						<li>Jailbreak tweaks soon to come :)</li>
+					</ul>
+				</ul>
+			</div>
 		</div>
 	</body>
 </html>
