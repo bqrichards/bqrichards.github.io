@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>German Verbs</title>
+		<style>
+			.entry {
+				position: fixed;
+				width: 70%; /* Set your desired with */
+				z-index: 2; /* Make sure its above other items. */
+				top: 50%;
+				left: 10%;
+				margin-top: -10%; /* Changes with height. */
+				margin-left: 5%; /* Your width divided by 2. */
+
+				/* You will not need the below, its only for styling   purposes. */
+				padding: 10px;
+				border: 2px solid #555555;
+				background-color: #ccc;
+				border-radius: 5px;
+				text-align: center;
+			}
+			
+			word {
+				border: 5px solid white; 
+				box-shadow: inset 0 0 8px  rgba(0,0,0,0.1), 0 0 16px rgba(0,0,0,0.1); 
+				padding: 15px;
+				background: rgba(255,255,255,0.5);
+				margin: 0 0 10px 0;
+			}
+			
+			.correct {
+				text-color: green;
+			}
+			
+			.incorrect {
+				text-color: red;
+			}
+			
+			.bottomButton {
+				margin-left: 20px;
+				margin-right: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="entry">
+			<form>
+				<input class="word" id="word1" type="text" name="word1" />
+				<input class="word" id="word2" type="text" name="word2" />
+				<input class="word" id="word3" type="text" name="word3" />
+				<input class="word" id="word4" type="text" name="word4" />
+			</form>
+			<button class="bottomButton" onclick="insertEszett()">Insert ß</button>
+			<button class="bottomButton" onclick="check(null)">Check</button>
+			<button class="bottomButton" onclick="next()">Next</button>
+		</div>
+		<h3 id="correct-label" class="correct"></h3>
+		<h4 id="answer-label"></h4>
+		
+		<script>
+			var verbs = [
+				['tun', 'tat', 'getan', 'to do'],
+				['verlassen', 'verliess', 'verlassen', 'to leave'],
+				['sitzen', 'saß', 'gesessen', 'to sit'],
+				['schreiben', 'schrieb', 'geschrieben', 'to write'],
+				['sehen', 'sah', 'gesehen', 'to see'],
+				['sprechen', 'sprach', 'gesprochen', 'to speak'],
+				['trinken', 'trank', 'getrunken', 'to drink'],
+				['wissen', 'wusste', 'gewusst', 'to know']
+			];
+			
+			var textbox1 = document.getElementById('word1');
+			textbox1.addEventListener("keyup", check);
+			var textbox2 = document.getElementById('word2');
+			textbox2.addEventListener("keyup", check);
+			var textbox3 = document.getElementById('word3');
+			textbox3.addEventListener("keyup", check);
+			var textbox4 = document.getElementById('word4');
+			textbox4.addEventListener("keyup", check);
+			var correctLabel = document.getElementById('correct-label');
+			var answerLabel = document.getElementById('answer-label');
+			
+			var sentence;
+			var shown;
+			var shownWord;
+			
+			function insertEszett() {
+				textbox2.value = textbox2.value + 'ß';
+				textbox2.focus();
+			}
+			
+			function clear() {
+				correctLabel.innerHTML = '';
+				textbox1.value = '';
+				textbox2.value = '';
+				textbox3.value = '';
+				textbox4.value = '';
+			}
+			
+			function check(event) {
+				if (event != null) {
+					event.preventDefault();
+					if (event.keyCode !== 13) {
+						return;
+					}
+				}
+				
+				if (correctLabel.innerHTML === 'Correct' || correctLabel.innerHTML === 'Incorrect') {
+					next();
+					return;
+				}
+			
+				var correct = textbox1.value.trim() === sentence[0] && textbox2.value.trim() === sentence[1] && textbox3.value.trim() === sentence[2] && textbox4.value.trim() === sentence[3];
+				correctLabel.innerHTML = correct ? 'Correct' : 'Incorrect';
+				correctLabel.style.color = correct ? 'green' : 'red';
+				textbox1.value = sentence[0];
+				textbox2.value = sentence[1];
+				textbox3.value = sentence[2];
+				textbox4.value = sentence[3];
+			}
+						
+			function next() {
+				clear();
+				textbox1.focus();
+				sentence = verbs[Math.floor(Math.random()*verbs.length)];
+				shown = Math.floor(Math.random()*sentence.length);
+				shownWord = sentence[shown];
+							
+				switch (shown) {
+					case 0:
+						textbox1.value = sentence[0];
+						break;
+					case 1:
+						textbox2.value = sentence[1];
+						break;
+					case 2:
+						textbox3.value = sentence[2];
+						break;
+					case 3:
+						textbox4.value = sentence[3];
+						break;
+				}
+			}
+			
+			next();
+		</script>
+	</body>
+</html>
