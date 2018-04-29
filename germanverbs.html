@@ -2,22 +2,30 @@
 <html>
 	<head>
 		<title>German Verbs</title>
+		<meta charset="UTF-8">
 		<style>
+			body {
+				background: rgb(6,1,94);
+				background-image: linear-gradient(135deg, rgba(6,1,94,1) 0%, rgba(32,25,170,1) 0%, rgba(54,54,227,1) 43%, rgba(10,81,96,1) 96%);
+			}
+		
 			.entry {
 				position: fixed;
-				width: 70%; /* Set your desired with */
-				z-index: 2; /* Make sure its above other items. */
-				top: 50%;
+				width: 70%;
+				z-index: 2;
+				top: 45%;
 				left: 10%;
-				margin-top: -10%; /* Changes with height. */
-				margin-left: 5%; /* Your width divided by 2. */
+				margin-top: -10%;
+				margin-left: 5%;
 
-				/* You will not need the below, its only for styling   purposes. */
 				padding: 10px;
-				border: 2px solid #555555;
-				background-color: #ccc;
-				border-radius: 5px;
 				text-align: center;
+			}
+
+			input {
+				width: 18%;
+				margin-left: 10px;
+				margin-right: 10px;
 			}
 			
 			word {
@@ -26,6 +34,10 @@
 				padding: 15px;
 				background: rgba(255,255,255,0.5);
 				margin: 0 0 10px 0;
+			}
+
+			#correct-label {
+				font-size: 40px;
 			}
 			
 			.correct {
@@ -36,26 +48,54 @@
 				text-color: red;
 			}
 			
+			/* Thanks http://css3buttongenerator.com/ */
 			.bottomButton {
-				margin-left: 20px;
-				margin-right: 20px;
+				background: #3498db;
+				background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+				background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+				background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+				background-image: -o-linear-gradient(top, #3498db, #2980b9);
+				background-image: linear-gradient(to bottom, #3498db, #2980b9);
+				-webkit-border-radius: 16;
+				-moz-border-radius: 16;
+				border-radius: 16px;
+				-webkit-box-shadow: 3px 3px 8px #666666;
+				-moz-box-shadow: 3px 3px 8px #666666;
+				box-shadow: 3px 3px 8px #666666;
+				font-family: Courier New;
+				color: #ffffff;
+				font-size: 18px;
+				padding: 6px 12px 6px 12px;
+				text-decoration: none;
+				margin-top: 25px;
+				margin-left: 25px;
+				margin-right: 25px;
+			}
+
+			.bottomButton:hover {
+				background: #3cb0fd;
+				background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+				background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+				background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+				background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+				background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+				text-decoration: none;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="entry">
 			<form>
+				<h1 id="correct-label" class="correct"></h1>
 				<input class="word" id="word1" type="text" name="word1" />
 				<input class="word" id="word2" type="text" name="word2" />
 				<input class="word" id="word3" type="text" name="word3" />
-				<input class="word" id="word4" type="text" name="word4" />
+				<input class="word" id="word4" type="text" name="word4" placeholder="English" />
 			</form>
 			<button class="bottomButton" onclick="insertEszett()">Insert ß</button>
 			<button class="bottomButton" onclick="check(null)">Check</button>
 			<button class="bottomButton" onclick="next()">Next</button>
 		</div>
-		<h3 id="correct-label" class="correct"></h3>
-		<h4 id="answer-label"></h4>
 		
 		<script>
 			var verbs = [
@@ -78,7 +118,6 @@
 			var textbox4 = document.getElementById('word4');
 			textbox4.addEventListener("keyup", check);
 			var correctLabel = document.getElementById('correct-label');
-			var answerLabel = document.getElementById('answer-label');
 			
 			var sentence;
 			var shown;
@@ -105,13 +144,13 @@
 					}
 				}
 				
-				if (correctLabel.innerHTML === 'Correct' || correctLabel.innerHTML === 'Incorrect') {
+				if (correctLabel.innerHTML === '✔️ Correct' || correctLabel.innerHTML === '✖️ Incorrect') {
 					next();
 					return;
 				}
 			
 				var correct = textbox1.value.trim() === sentence[0] && textbox2.value.trim() === sentence[1] && textbox3.value.trim() === sentence[2] && textbox4.value.trim() === sentence[3];
-				correctLabel.innerHTML = correct ? 'Correct' : 'Incorrect';
+				correctLabel.innerHTML = correct ? '✔️ Correct' : '✖️ Incorrect';
 				correctLabel.style.color = correct ? 'green' : 'red';
 				textbox1.value = sentence[0];
 				textbox2.value = sentence[1];
@@ -125,10 +164,12 @@
 				sentence = verbs[Math.floor(Math.random()*verbs.length)];
 				shown = Math.floor(Math.random()*sentence.length);
 				shownWord = sentence[shown];
+				correctLabel.style.color = 'black';
 							
 				switch (shown) {
 					case 0:
 						textbox1.value = sentence[0];
+						textbox2.focus();
 						break;
 					case 1:
 						textbox2.value = sentence[1];
@@ -140,6 +181,8 @@
 						textbox4.value = sentence[3];
 						break;
 				}
+
+				correctLabel.innerHTML = shownWord;
 			}
 			
 			next();
