@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>bqrichards</title>
+		<meta charset="UTF-8">
 		<style>
 			body {
 				background: -moz-linear-gradient(330deg, rgba(20,54,107,1) 0%, rgba(6,80,122,1) 100%); /* ff3.6+ */
@@ -9,7 +10,7 @@
 				background: -o-linear-gradient(330deg, rgba(20,54,107,1) 0%, rgba(6,80,122,1) 100%); /* opera 11.10+ */
 				background: -ms-linear-gradient(330deg, rgba(20,54,107,1) 0%, rgba(6,80,122,1) 100%); /* ie10+ */
 				background: linear-gradient(120deg, rgba(20,54,107,1) 0%, rgba(6,80,122,1) 100%); /* w3c */
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#14366B', endColorstr='#06507A',GradientType=1 ); /* ie6-9 */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#14366B', endColorstr='#06507A', GradientType=1); /* ie6-9 */
 				color: #FF7518;
 			}
 
@@ -17,7 +18,7 @@
 				float: left;
 				position: relative;
 				margin-left: 8%;
-				top: 25%;
+				top: 21%;
 			}
 
 			.info-box {
@@ -28,9 +29,9 @@
 			.right {
 				margin-left: 45%;
 				width: 500px;
-				height: 500px;
+				height: 420px;
 				position: relative;
-				top: 20%;
+				top: 18%;
 			}
 
 			.right > * {
@@ -52,9 +53,9 @@
 			}
 
 			.experience > li:before {
-    		display: block;
-    		float: left;
-    		width: 1.2em;
+    			display: block;
+    			float: left;
+    			width: 1.2em;
 			}
 
 			.experience > .yes:before {
@@ -63,6 +64,18 @@
 
 			.experience > .no:before {
 				content: "X";
+			}
+
+			.experience > .maybe:before {
+				content: "?";
+			}
+
+			#cydia {
+				margin-top: 26px;
+			}
+
+			#projects {
+				margin-top: -12px;
 			}
 		</style>
 	</head>
@@ -76,8 +89,8 @@
 				<li class="yes"><h3>Swift &amp; Objective-C</h3></li>
 				<li class="yes"><h3>MySQL</h3></li>
 				<li class="no"><h3>Decent Website Design</h3></li>
+				<li class="maybe"><h3>Future astronaut</h3></li>
 			</ul>
-			<h5>Future astronaut?<h5>
 		</div>
 
 		<div class="right info-box">
@@ -95,7 +108,7 @@
 					<li><h3><a href="https://bqrichards.github.io/germanverbs.html">German Verb Study</a></h3></li>
 					<li><h3>Jailbreak Tweaks</h3></li>
 					<ul>
-						<li>Jailbreak tweaks soon to come :)</li>
+						<li>Jailbreak tweaks soon to be open sourced :)</li>
 					</ul>
 				</ul>
 			</div>
