@@ -103,18 +103,17 @@
 			<form>
 				<h1 id="correct-label" class="correct"></h1>
 				<input class="word" id="word1" type="text" name="word1" placeholder="Infinitive" />
-				<input class="word" id="word2" type="text" name="word2" placeholder="Narrative Past"/>
-				<input class="word" id="word3" type="text" name="word3" placeholder="Conversational Past" />
+				<input class="word" id="word2" type="text" name="word2" placeholder="NP"/>
+				<input class="word" id="word3" type="text" name="word3" placeholder="CP" />
 				<input class="word" id="word4" type="text" name="word4" placeholder="English" />
 			</form>
-			<button class="bottomButton" onclick="insertEszett()">Insert ß</button>
+			<button class="bottomButton" id="insert-special-button" onclick="insertSpecial()">ß</button>
+			<button class="bottomButton" id="insert-special-button-secondary" onclick="insertSpecialSecondary()">ü</button>
 			<button class="bottomButton" onclick="check(null)">Check</button>
-			<button class="bottomButton" onclick="next()">Next</button>'
+			<button class="bottomButton" onclick="next()">Next</button>
 		</div>
 
 		<script>
-			var verbs = schreibenwissen();
-
 			var textbox1 = document.getElementById('word1');
 			textbox1.addEventListener("keyup", check);
 			var textbox2 = document.getElementById('word2');
@@ -125,15 +124,30 @@
 			textbox4.addEventListener("keyup", check);
 			var correctLabel = document.getElementById('correct-label');
 			var switchVerbButton = document.getElementById('switch-verbs');
-			switchVerbButton.value = "Hello";
+			var insertSpecialButton = document.getElementById('insert-special-button');
 
 			var sentence;
 			var shown;
 			var shownWord;
 
-			function insertEszett() {
-				textbox2.value = textbox2.value + 'ß';
-				textbox2.focus();
+			var verbs = schreibenwissen();
+			switchVerbs(); // Start with modal
+
+			function insertSpecial() {
+				var insertChar = insertSpecialButton.innerHTML;
+
+				if (insertChar == 'ö') {
+					textbox1.value = textbox1.value + insertChar;
+					textbox1.focus();
+				} else {
+					textbox2.value = textbox2.value + insertChar;
+					textbox2.focus();
+				}
+			}
+
+			function insertSpecialSecondary() {
+				textbox1.value = textbox1.value + 'ü';
+				textbox1.focus();
 			}
 
 			function clear() {
@@ -156,17 +170,19 @@
 			}
 
 			function modal() {
+				insertSpecialButton.innerHTML = "ö";
 				return [
-					['durfen', 'durfte', 'gedurft', 'may'],
-					['konnen', 'konnte', 'gekonnt', 'can'],
-					['mogen', 'mochte', 'gemocht', 'to like'],
-					['mussen', 'musste', 'gemusst', 'must'],
+					['dürfen', 'durfte', 'gedurft', 'may'],
+					['können', 'konnte', 'gekonnt', 'can'],
+					['mögen', 'mochte', 'gemocht', 'to like'],
+					['müssen', 'musste', 'gemusst', 'must'],
 					['sollen', 'sollte', 'gesollt', 'should'],
 					['wollen', 'wollte', 'gewollt', 'want']
 				];
 			}
 
 			function schreibenwissen() {
+				insertSpecialButton.innerHTML = "ß";
 				return [
 					['tun', 'tat', 'getan', 'to do'],
 					['verlassen', 'verliess', 'verlassen', 'to leave'],
