@@ -1,1 +1,1 @@
-dpkg-deb -Zgzip -b debs/logfailedpassattempt
+dpkg-deb -Zgzip -b debs/

@@ -11,7 +11,6 @@
 		<package>mobilesubstrate</package>
 	</dependencies>
 	<descriptionlist>
-		<description>Logs failed passcode data to /var/mobile/failedpasscodedata.txt. This was requested on the r/jailbreak subreddit by /u/t2magician. WORKS ON IOS 10 ONLY.</description>
-		<description>If you want it for iOS 11 I could make that work, just let me know. I just made it specifically for iOS 10 because that's the device version it was requested for.</description>
+		<description>WORKS ON IOS 10 ONLY. Logs failed passcode data to /var/mobile/failedpasscodedata.txt. This was requested on the r/jailbreak subreddit by /u/t2magician.</description>
 	</descriptionlist>
 </package>
