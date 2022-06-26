@@ -1,6 +1,7 @@
 {
-  "name": "bqrichards_portfolio",
+  "name": "bqrichards.github.io",
   "version": "1.0.0",
+  "license": "MIT",
   "homepage": "https://bqrichards.github.io",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
