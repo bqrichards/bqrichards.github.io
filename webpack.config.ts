@@ -65,6 +65,11 @@ const webpackConfig = (): Configuration => ({
 						ignore: ['**/index.html'],
 					},
 				},
+				// Copy index.html from repo
+				{
+					from: 'public/repo/index.html',
+					to: 'repo/index.html',
+				},
 			],
 		}),
 	],
