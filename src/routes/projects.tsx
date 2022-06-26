@@ -1,14 +1,15 @@
 import { ProjectCard } from '../components/ProjectCard'
 import { PageHeader } from '../components/PageHeader'
 import { Anchor, Space, Typography } from 'antd'
+import styles from '../styles/projects.module.scss'
 
 export default function Projects() {
 	return (
-		<div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+		<div className={styles.container}>
 			<PageHeader title="Projects" />
-			<div style={{ display: 'flex', flexDirection: 'row', flex: 1 }}>
-				<div style={{ display: 'flex', flexDirection: 'column', marginRight: 32 }}>
-					<Anchor>
+			<div className={styles.panelContainer}>
+				<div className={styles.leftPanel}>
+					<Anchor getContainer={() => document.getElementById('projects-panel')}>
 						<Anchor.Link href="#robotics" title="FIRST Robotics">
 							<Anchor.Link href="#frc" title="FRC" />
 							<Anchor.Link href="#ftc" title="FTC" />
@@ -17,11 +18,11 @@ export default function Projects() {
 						<Anchor.Link href="#jailbreak" title="Jailbreak" />
 					</Anchor>
 				</div>
-				<div style={{ display: 'flex', flexDirection: 'column', flex: 1, height: '89vh', overflowY: 'scroll' }}>
+				<div className={styles.rightPanel} id="projects-panel">
 					<Typography.Title level={2} id="robotics">
 						FIRST Robotics
 					</Typography.Title>
-					<Typography.Title level={3} id="frc" style={{ marginTop: 0 }}>
+					<Typography.Title level={3} id="frc" className={styles.noMarginTop}>
 						FRC
 					</Typography.Title>
 					<Space direction="horizontal" wrap>
@@ -37,7 +38,7 @@ export default function Projects() {
 							tags={['app', 'Android']}
 						>
 							<Typography.Text>
-								The Collaborative Scouting Project Android app for the 2018-2019 FRC Navigating Deep Space season.
+								The Collaborative Scouting Project Android app for the 2018-2019 FRC Navigating Deep Space season
 							</Typography.Text>
 						</ProjectCard>
 						<ProjectCard
@@ -45,7 +46,7 @@ export default function Projects() {
 							githubUrl="https://github.com/bqrichards/CSP-Analyze-Desktop"
 							tags={['C#']}
 						>
-							<Typography.Text>TODO</Typography.Text>
+							<Typography.Text>Windows application for interacting with CSP-Analyze backend</Typography.Text>
 						</ProjectCard>
 						<ProjectCard
 							title="CSP-Aggregate"
@@ -85,6 +86,19 @@ export default function Projects() {
 							tags={['docker', 'python', 'react']}
 						>
 							<Typography.Text>A webapp for journaling and saving media</Typography.Text>
+						</ProjectCard>
+						<ProjectCard
+							title="bqrichards.github.io"
+							githubUrl="https://github.com/bqrichards/bqrichards.github.io"
+							tags={['react']}
+						>
+							<Typography.Text>
+								Personal portfolio, sometimes for HTML projects, mostly for{' '}
+								<a href="/repo" target="_blank">
+									Cydia repo
+								</a>{' '}
+								hosting
+							</Typography.Text>
 						</ProjectCard>
 					</Space>
 					<br />
