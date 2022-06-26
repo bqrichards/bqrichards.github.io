@@ -1,20 +1,22 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
-import { PROJECTS_PATH, HOME_PATH } from './routes'
+import { PROJECTS_PATH, HOME_PATH, CYDIA_REPO_PATH } from './routes'
 import { Menu, Layout } from 'antd'
 import type { MenuClickEventHandler } from 'rc-menu/lib/interface'
-import { HomeOutlined, NodeExpandOutlined } from '@ant-design/icons'
+import { AppleOutlined, HomeOutlined, NodeExpandOutlined } from '@ant-design/icons'
 
 import styles from './styles/App.module.scss'
 
 import Home from './routes/home'
 import Projects from './routes/projects'
+import CydiaRepo from './routes/cydiarepo'
 
 const { Sider, Content } = Layout
 
 const MENU_ITEMS = [
 	{ label: 'Home', key: HOME_PATH, icon: <HomeOutlined /> },
 	{ label: 'Projects', key: PROJECTS_PATH, icon: <NodeExpandOutlined /> },
+	{ label: 'Cydia Repo', key: CYDIA_REPO_PATH, icon: <AppleOutlined /> },
 ]
 /** Key: path, Value: display name */
 const menuKeyToLabel: Record<string, string> = MENU_ITEMS.reduce((map, obj) => {
@@ -51,6 +53,8 @@ const App = () => {
 				navigate(HOME_PATH)
 			} else if (e.key === '2') {
 				navigate(PROJECTS_PATH)
+			} else if (e.key === '3') {
+				navigate(CYDIA_REPO_PATH)
 			}
 		}
 
@@ -78,6 +82,7 @@ const App = () => {
 				<Routes>
 					<Route path={HOME_PATH} element={<Home />} />
 					<Route path={PROJECTS_PATH} element={<Projects />} />
+					<Route path={CYDIA_REPO_PATH} element={<CydiaRepo />} />
 				</Routes>
 			</Content>
 		</div>

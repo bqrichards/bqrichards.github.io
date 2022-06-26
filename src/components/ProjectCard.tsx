@@ -1,5 +1,7 @@
-import { Card, Tag, Typography } from 'antd'
 import React, { FC } from 'react'
+import { Card, Tag, Typography } from 'antd'
+
+import styles from '../styles/ProjectCard.module.scss'
 
 interface ProjectCardProps {
 	title: string
@@ -11,7 +13,7 @@ interface ProjectCardProps {
 export const ProjectCard: FC<ProjectCardProps> = ({ title, tags = [], githubUrl, children }) => (
 	<Card
 		title={
-			<div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+			<div className={styles.title}>
 				<Typography.Text>{title}</Typography.Text>
 				{tags.map(tag => (
 					<Tag key={tag} style={{}}>
@@ -22,9 +24,9 @@ export const ProjectCard: FC<ProjectCardProps> = ({ title, tags = [], githubUrl,
 		}
 		style={{ width: 350, height: 160 }}
 		extra={
-			<a href={githubUrl} target="_blank" rel="noreferrer">
+			<Typography.Link href={githubUrl} target="_blank" rel="noreferrer">
 				Visit
-			</a>
+			</Typography.Link>
 		}
 	>
 		{children}

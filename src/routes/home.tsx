@@ -13,9 +13,9 @@ const loadingView = (
 )
 
 const githubProfileLink = (
-	<a href="https://github.com/bqrichards" target="_blank" rel="noreferrer">
+	<Typography.Link href="https://github.com/bqrichards" target="_blank" rel="noreferrer">
 		GitHub profile
-	</a>
+	</Typography.Link>
 )
 
 const errorDisplay = (
