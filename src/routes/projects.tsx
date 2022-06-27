@@ -15,6 +15,7 @@ export default function Projects() {
 							<Anchor.Link href="#ftc" title="FTC" />
 						</Anchor.Link>
 						<Anchor.Link href="#webdev" title="Web Dev" />
+						<Anchor.Link href="#rocketry" title="Rocketry" />
 						<Anchor.Link href="#mc-mods" title="Minecraft Mods" />
 						<Anchor.Link href="#jailbreak" title="Jailbreak" />
 					</Anchor>
@@ -27,7 +28,7 @@ export default function Projects() {
 						FRC
 					</Typography.Title>
 					<Space direction="horizontal" wrap>
-						<ProjectCard title="CSP-Analyze" githubUrl="https://github.com/bqrichards/CSP-Analyze" tags={['python']}>
+						<ProjectCard title="CSP-Analyze" githubUrl="https://github.com/bqrichards/CSP-Analyze" tags={['Python']}>
 							<Typography.Text>
 								Backend for the FIRST FRC Collaborative Scouting Project Analyze website written with{' '}
 								<a href="https://flask.palletsprojects.com/en/2.1.x/">Flask</a>
@@ -36,7 +37,7 @@ export default function Projects() {
 						<ProjectCard
 							title="CSP-Android"
 							githubUrl="https://github.com/DisruptiveInnovation6317/CSP-Android"
-							tags={['app', 'Android']}
+							tags={['App', 'Android']}
 						>
 							<Typography.Text>
 								The Collaborative Scouting Project Android app for the 2018-2019 FRC Navigating Deep Space season
@@ -52,7 +53,7 @@ export default function Projects() {
 						<ProjectCard
 							title="CSP-Aggregate"
 							githubUrl="https://github.com/bqrichards/CSP-Aggregate"
-							tags={['app', 'iOS']}
+							tags={['App', 'iOS']}
 						>
 							<Typography.Text>iOS app used to scan and upload QR outputs from the CSP-Android app</Typography.Text>
 						</ProjectCard>
@@ -62,16 +63,16 @@ export default function Projects() {
 						FTC
 					</Typography.Title>
 					<Space direction="horizontal" wrap>
-						<ProjectCard title="Tarso" githubUrl="https://github.com/bqrichards/Tarso" tags={['app', 'Android']}>
+						<ProjectCard title="Tarso" githubUrl="https://github.com/bqrichards/Tarso" tags={['App', 'Android']}>
 							<Typography.Text>The universal FTC scouting app for the 2017-2018 Relic Recovery season</Typography.Text>
 						</ProjectCard>
-						<ProjectCard title="roverRuckusRC" githubUrl="https://github.com/bqrichards/roverRuckusRC" tags={['app']}>
+						<ProjectCard title="roverRuckusRC" githubUrl="https://github.com/bqrichards/roverRuckusRC" tags={['App']}>
 							<Typography.Text>Robot Controller for the 2018-2019 FTC Rover Ruckus season</Typography.Text>
 						</ProjectCard>
 						<ProjectCard
 							title="CitrusScouter"
 							githubUrl="https://github.com/bqrichards/CitrusScouter"
-							tags={['app', 'Android']}
+							tags={['App', 'Android']}
 						>
 							<Typography.Text>FTC Team and Matchlist Recorder for Rover Ruckus</Typography.Text>
 						</ProjectCard>
@@ -84,14 +85,14 @@ export default function Projects() {
 						<ProjectCard
 							title="everything"
 							githubUrl="https://github.com/bqrichards/everything"
-							tags={['docker', 'python', 'react']}
+							tags={['Docker', 'Python', 'React']}
 						>
 							<Typography.Text>A webapp for journaling and saving media</Typography.Text>
 						</ProjectCard>
 						<ProjectCard
 							title="bqrichards.github.io"
 							githubUrl="https://github.com/bqrichards/bqrichards.github.io"
-							tags={['react']}
+							tags={['React', 'TS']}
 						>
 							<Typography.Text>
 								Personal portfolio, sometimes for HTML projects, mostly for{' '}
@@ -103,15 +104,30 @@ export default function Projects() {
 						</ProjectCard>
 					</Space>
 					<br />
+					<Typography.Title level={2} id="rocketry">
+						Rocketry
+					</Typography.Title>
+					<Space direction="horizontal" wrap>
+						<ProjectCard
+							title="data_rocket"
+							githubUrl="https://github.com/bqrichards/data_rocket"
+							tags={['C++', 'Arduino']}
+						>
+							<Typography.Text>Log sensor data on rocket flight for Arduino</Typography.Text>
+						</ProjectCard>
+						<ProjectCard title="rfcs" githubUrl="https://github.com/bqrichards/rfcs" tags={['C++', 'Arduino']}>
+							<Typography.Text>Rocket Flight Control Software for Arduino</Typography.Text>
+						</ProjectCard>
+					</Space>
 					<br />
 					<Typography.Title level={2} id="mc-mods">
 						Minecraft Mods
 					</Typography.Title>
 					<Space direction="horizontal" wrap>
-						<ProjectCard title="moon" githubUrl="https://github.com/bqrichards/moon" tags={['java', 'forge']}>
+						<ProjectCard title="moon" githubUrl="https://github.com/bqrichards/moon" tags={['Java', 'Forge']}>
 							<Typography.Text>A Minecraft Mod that adds a moon dimension</Typography.Text>
 						</ProjectCard>
-						<ProjectCard title="Dronez" githubUrl="https://github.com/bqrichards/Dronez" tags={['java', 'forge']}>
+						<ProjectCard title="Dronez" githubUrl="https://github.com/bqrichards/Dronez" tags={['Java', 'Forge']}>
 							<Typography.Text>Collaborative project at ISU to add Drones to Minecraft</Typography.Text>
 						</ProjectCard>
 					</Space>
@@ -120,7 +136,7 @@ export default function Projects() {
 						Jailbreak
 					</Typography.Title>
 					<Space direction="horizontal" wrap>
-						<ProjectCard title="HapticKeypad" githubUrl="https://github.com/bqrichards/HapticKeypad" tags={['tweak']}>
+						<ProjectCard title="HapticKeypad" githubUrl="https://github.com/bqrichards/HapticKeypad" tags={['Tweak']}>
 							<Typography.Text>A jailbreak tweak to provide haptics in Phone.app on iOS 11.3.1</Typography.Text>
 						</ProjectCard>
 					</Space>
