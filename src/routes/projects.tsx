@@ -15,6 +15,7 @@ export default function Projects() {
 							<Anchor.Link href="#ftc" title="FTC" />
 						</Anchor.Link>
 						<Anchor.Link href="#webdev" title="Web Dev" />
+						<Anchor.Link href="#mc-mods" title="Minecraft Mods" />
 						<Anchor.Link href="#jailbreak" title="Jailbreak" />
 					</Anchor>
 				</div>
@@ -94,11 +95,24 @@ export default function Projects() {
 						>
 							<Typography.Text>
 								Personal portfolio, sometimes for HTML projects, mostly for{' '}
-								<a href="/repo" target="_blank">
+								<Typography.Link href="/repo" target="_blank">
 									Cydia repo
-								</a>{' '}
+								</Typography.Link>{' '}
 								hosting
 							</Typography.Text>
+						</ProjectCard>
+					</Space>
+					<br />
+					<br />
+					<Typography.Title level={2} id="mc-mods">
+						Minecraft Mods
+					</Typography.Title>
+					<Space direction="horizontal" wrap>
+						<ProjectCard title="moon" githubUrl="https://github.com/bqrichards/moon" tags={['java', 'forge']}>
+							<Typography.Text>A Minecraft Mod that adds a moon dimension</Typography.Text>
+						</ProjectCard>
+						<ProjectCard title="Dronez" githubUrl="https://github.com/bqrichards/Dronez" tags={['java', 'forge']}>
+							<Typography.Text>Collaborative project at ISU to add Drones to Minecraft</Typography.Text>
 						</ProjectCard>
 					</Space>
 					<br />
