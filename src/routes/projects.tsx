@@ -17,6 +17,7 @@ export default function Projects() {
 						<Anchor.Link href="#webdev" title="Web Dev" />
 						<Anchor.Link href="#rocketry" title="Rocketry" />
 						<Anchor.Link href="#mc-mods" title="Minecraft Mods" />
+						<Anchor.Link href="#bots" title="Bots" />
 						<Anchor.Link href="#jailbreak" title="Jailbreak" />
 					</Anchor>
 				</div>
@@ -132,6 +133,19 @@ export default function Projects() {
 						</ProjectCard>
 						<ProjectCard title="Dronez" githubUrl="https://github.com/bqrichards/Dronez" tags={['Java', 'Forge']}>
 							<Typography.Text>Collaborative project at ISU to add Drones to Minecraft</Typography.Text>
+						</ProjectCard>
+					</Space>
+					<br />
+					<Typography.Title level={2} id="bots">
+						Bots
+					</Typography.Title>
+					<Space direction="horizontal" wrap>
+						<ProjectCard
+							title="KarmaBot"
+							githubUrl="https://github.com/bqrichards/KarmaBot"
+							tags={['Bot', 'Discord', 'Python']}
+						>
+							<Typography.Text>A Discord bot that keeps track of karma, similar to Reddit</Typography.Text>
 						</ProjectCard>
 					</Space>
 					<br />
