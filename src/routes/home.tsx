@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { message, Result, Skeleton, Typography } from 'antd'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
-import { PageHeader } from '../components/PageHeader'
 import styles from '../styles/home.module.scss'
 
 const loadingView = (
@@ -50,10 +49,5 @@ export default function Home() {
 	// Show error, content, or loading
 	const contentView = error ? errorDisplay : markdown ? markdownView : loadingView
 
-	return (
-		<div className={styles.container}>
-			<PageHeader title="Home" />
-			{contentView}
-		</div>
-	)
+	return <div className={styles.container}>{contentView}</div>
 }

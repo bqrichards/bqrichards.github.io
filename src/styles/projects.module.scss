@@ -16,6 +16,12 @@
 	margin-right: 32px;
 }
 
+@media (max-width: 900px) {
+	.leftPanel {
+		display: none;
+	}
+}
+
 .rightPanel {
 	display: flex;
 	flex-direction: column;
