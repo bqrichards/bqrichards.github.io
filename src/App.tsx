@@ -29,10 +29,7 @@ const App = () => {
 
 	const { pathname } = useLocation()
 
-	const onMenuClickHandler = useCallback<MenuClickEventHandler>(({ key }) => {
-		navigate(key)
-	}, [])
-
+	// Change title based on tab/page selected
 	useEffect(() => {
 		if (pathname in menuKeyToLabel) {
 			document.title = `${menuKeyToLabel[pathname]} | bqrichards`
@@ -41,7 +38,11 @@ const App = () => {
 		}
 	}, [pathname])
 
-	// Setup hotkey for collapsing Sider
+	const onMenuClickHandler = useCallback<MenuClickEventHandler>(({ key }) => {
+		navigate(key)
+	}, [])
+
+	// Setup hotkey for switching tabs
 	useEffect(() => {
 		const listener = (e: KeyboardEvent) => {
 			if (e.key === '1') {
@@ -60,11 +61,11 @@ const App = () => {
 		}
 	}, [])
 
-	const menu = <Menu mode="horizontal" items={MENU_ITEMS} selectedKeys={[pathname]} onClick={onMenuClickHandler} />
-
 	return (
 		<div className={styles.container}>
-			<nav>{menu}</nav>
+			<nav>
+				<Menu mode="horizontal" items={MENU_ITEMS} selectedKeys={[pathname]} onClick={onMenuClickHandler} />
+			</nav>
 			<Content className={styles.mainContent}>
 				<Routes>
 					<Route path={HOME_PATH} element={<Home />} />
