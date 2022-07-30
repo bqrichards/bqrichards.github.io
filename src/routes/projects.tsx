@@ -83,13 +83,6 @@ export default function Projects() {
 					</Typography.Title>
 					<Space direction="horizontal" wrap>
 						<ProjectCard
-							title="everything"
-							githubUrl="https://github.com/bqrichards/everything"
-							tags={['Docker', 'Python', 'React']}
-						>
-							<Typography.Text>A webapp for journaling and saving media</Typography.Text>
-						</ProjectCard>
-						<ProjectCard
 							title="bqrichards.github.io"
 							githubUrl="https://github.com/bqrichards/bqrichards.github.io"
 							tags={['React', 'TS']}
@@ -101,6 +94,16 @@ export default function Projects() {
 								</Typography.Link>{' '}
 								hosting
 							</Typography.Text>
+						</ProjectCard>
+						<ProjectCard title="roots" githubUrl="https://github.com/bqrichards/roots" tags={['React', 'TS']}>
+							<Typography.Text>Genealogy in the browser</Typography.Text>
+						</ProjectCard>
+						<ProjectCard
+							title="everything"
+							githubUrl="https://github.com/bqrichards/everything"
+							tags={['Docker', 'Python', 'React']}
+						>
+							<Typography.Text>A webapp for journaling and saving media</Typography.Text>
 						</ProjectCard>
 					</Space>
 					<br />
