@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect } from 'react'
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { PROJECTS_PATH, HOME_PATH, CYDIA_REPO_PATH } from './routes'
 import { Menu, Layout } from 'antd'
@@ -11,7 +11,7 @@ import Home from './routes/home'
 import Projects from './routes/projects'
 import CydiaRepo from './routes/cydiarepo'
 
-const { Sider, Content } = Layout
+const { Content } = Layout
 
 const MENU_ITEMS = [
 	{ label: 'Home', key: HOME_PATH, icon: <HomeOutlined /> },
@@ -25,17 +25,11 @@ const menuKeyToLabel: Record<string, string> = MENU_ITEMS.reduce((map, obj) => {
 }, {})
 
 const App = () => {
-	const [collapsed, setCollapsed] = useState(false)
-	const toggleCollapsed = useCallback(() => setCollapsed(prev => !prev), [])
-
 	const navigate = useNavigate()
 
 	const { pathname } = useLocation()
 
-	const onMenuClickHandler = useCallback<MenuClickEventHandler>(({ key }) => {
-		navigate(key)
-	}, [])
-
+	// Change title based on tab/page selected
 	useEffect(() => {
 		if (pathname in menuKeyToLabel) {
 			document.title = `${menuKeyToLabel[pathname]} | bqrichards`
@@ -44,12 +38,14 @@ const App = () => {
 		}
 	}, [pathname])
 
-	// Setup hotkey for collapsing Sider
+	const onMenuClickHandler = useCallback<MenuClickEventHandler>(({ key }) => {
+		navigate(key)
+	}, [])
+
+	// Setup hotkey for switching tabs
 	useEffect(() => {
-		const listener = e => {
-			if (e.key === '[') {
-				toggleCollapsed()
-			} else if (e.key === '1') {
+		const listener = (e: KeyboardEvent) => {
+			if (e.key === '1') {
 				navigate(HOME_PATH)
 			} else if (e.key === '2') {
 				navigate(PROJECTS_PATH)
@@ -67,17 +63,9 @@ const App = () => {
 
 	return (
 		<div className={styles.container}>
-			<Sider className={styles.sider} collapsible collapsed={collapsed} onCollapse={setCollapsed}>
-				<div className={styles.siderMenuContainer}>
-					<Menu
-						mode="inline"
-						className={styles.siderMenu}
-						items={MENU_ITEMS}
-						selectedKeys={[pathname]}
-						onClick={onMenuClickHandler}
-					/>
-				</div>
-			</Sider>
+			<nav>
+				<Menu mode="horizontal" items={MENU_ITEMS} selectedKeys={[pathname]} onClick={onMenuClickHandler} />
+			</nav>
 			<Content className={styles.mainContent}>
 				<Routes>
 					<Route path={HOME_PATH} element={<Home />} />

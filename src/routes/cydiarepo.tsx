@@ -1,5 +1,4 @@
 import { List, Typography } from 'antd'
-import { PageHeader } from '../components/PageHeader'
 
 const PACKAGES = [
 	{
@@ -22,7 +21,6 @@ const PACKAGES = [
 export default function CydiaRepo() {
 	return (
 		<div>
-			<PageHeader title="Cydia Repository" />
 			<Typography.Title level={3}>
 				<Typography.Title level={2}>Add Repo</Typography.Title>
 				<Typography.Link href="cydia://url/https://cydia.saurik.com/api/share#?source=http://bqrichards.github.io/repo/">

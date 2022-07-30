@@ -1,12 +1,10 @@
 import { ProjectCard } from '../components/ProjectCard'
-import { PageHeader } from '../components/PageHeader'
 import { Anchor, Space, Typography } from 'antd'
 import styles from '../styles/projects.module.scss'
 
 export default function Projects() {
 	return (
 		<div className={styles.container}>
-			<PageHeader title="Projects" />
 			<div className={styles.panelContainer}>
 				<div className={styles.leftPanel}>
 					<Anchor getContainer={() => document.getElementById('projects-panel')}>
